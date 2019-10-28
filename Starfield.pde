@@ -1,7 +1,8 @@
 //your code here
 void setup()
 {
-	//your code here
+	size(600,600);
+	background(0);
 }
 void draw()
 {
@@ -9,7 +10,15 @@ void draw()
 }
 class Particle
 {
-	//your code here
+	double mx,my,mSpeed,mAngle;
+	int mColor;
+	Particle(){
+		mAngle = Math.random()*(2*Math.PI);
+		mSpeed = Math.random()*10;
+		mx = 300;
+		my = 300;
+		mColor = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+	}
 }
 
 class OddballParticle //inherits from Particle
