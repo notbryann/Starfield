@@ -28,7 +28,7 @@ class Particle
 	int mColor;
 	Particle(){
 		mAngle = Math.random()*(2*Math.PI);
-		mSpeed = Math.random()*10;
+		mSpeed = (Math.random()*5)+1;
 		mx = 300;
 		my = 300;
 		mColor = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
@@ -36,10 +36,15 @@ class Particle
 	void move(){
 		mx = mx + Math.cos(mAngle)*mSpeed;
 		my = my + Math.sin(mAngle)*mSpeed;
+		if(mx>600||mx<0){
+			mx=my=300;
+		}else if(my>600||my<0){
+			mx=my=300;
+		}
 	}
 	void show(){
 		noStroke();
-		fill(mColor);
+		fill(225);//mColor
 		ellipse((float)mx,(float)my,5,5);
 	}
 }
