@@ -1,4 +1,5 @@
 Particle [] a;
+OddballParticle b;
 void setup()
 {
 	size(600,600);
@@ -6,6 +7,7 @@ void setup()
 	a = new Particle[500];
 	for(int i = 0; i < a.length; i++){
 		a[i] = new Particle();
+		a[0] = new OddballParticle();
 	}
 }
 void draw()
@@ -20,6 +22,7 @@ void draw()
 void mousePressed(){
 	for(int i = 0; i < a.length; i++){
 		a[i] = new Particle();
+		a[0] = new OddballParticle();
 	}
 }
 class Particle
@@ -44,14 +47,20 @@ class Particle
 	}
 	void show(){
 		noStroke();
-		fill(225);//mColor
+		fill(mColor);
 		ellipse((float)mx,(float)my,5,5);
 	}
 }
 
-class OddballParticle //inherits from Particle
+class OddballParticle extends Particle
 {
-	//your code here
+	OddballParticle(){
+
+	}
+	void show(){
+		fill(225);
+		ellipse((float)mx,(float)my,20,20);
+	}
 }
 
 
